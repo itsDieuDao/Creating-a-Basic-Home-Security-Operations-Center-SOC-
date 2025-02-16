@@ -25,7 +25,7 @@
   - Open up **Event Viewer** and Inspect the **Security Logs**.
   - See the 3 failed logins as **"Employee"**, **Event ID 4625**
 
-  ✅ **Next, We are going to crete a Central Log Repository called LAW.**  
+  ✅ **Next, We are going to create a Central Log Repository called LAW.**  
   
  </br>    
     
