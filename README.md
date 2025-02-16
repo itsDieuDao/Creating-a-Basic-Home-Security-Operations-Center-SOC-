@@ -56,28 +56,33 @@
 
   - Observe the **Security Events** Logs in the **Logs Analytics Workspace**
   - Use the **IP Address** to derive the location data.
-  - Import this [spreadsheet](https://drive.google.com/file/d/13EfjM_4BohrmaxqXZLB5VUBIz2sv9Siz/view?usp=sharing) as a **"Sentinel Watchlist"**.
+  - Import this [Spreadsheet](https://drive.google.com/file/d/13EfjM_4BohrmaxqXZLB5VUBIz2sv9Siz/view?usp=sharing) as a **"Sentinel Watchlist"**.
   
-📌 **Check for Unauthorized Users**  
+📌 **Create the "Sentinel Watchlist"**    
 
-      cat /etc/passwd | awk -F: '$3 >= 1000 {print $1}'  
+   **Name/Alias: geoip**  
+   **Source Type: Local File**  
+   **Number of Lines before Row: 0**  
+   **Search Key: Network**  
 
-📌 **Verify SSH Secure Configuration**  
+ ✅ (Observe Architecture)  
+   
 
-      sudo cat /etc/ssh/sshd_config | grep -E "PermitRootLogin|PasswordAuthentication"  
+📌 **Observe the Logs to see where the attacks are coming from.**   
+
+      let GeoIPDB_FULL = _GetWatchlist("geoip");
+      let WindowsEvents = SecurityEvent
+          | where IpAddress == <attacker IP address>
+          | where EventID == 4625
+          | order by TimeGenerated desc
+          | evaluate ipv4_lookup(GeoIPDB_FULL, IpAddress, network);
+      WindowsEvents  
+        
+  ✅ (Observe Architecture)   
+  
+  
       
-  
-📌 **Scan for System Vulnerablities**  
-
-      sudo lynis audit system  
-
-✅ **Lynis provides a compliance score & remediation recommendations.**  
-
-
-    
-
-
-<h2>🛠 Step 3: Create a Compliance Readiness Plan </h2>  
+<h2>🛠 Step 5: Attack Map Creation </h2>   
   
 Now that we've assessed gaps, create an **action plan** to meet **ISO 27001** requirements.  
 </br>  
