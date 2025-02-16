@@ -56,7 +56,7 @@
 
   - Observe the **Security Events** Logs in the **Logs Analytics Workspace**
   - Use the **IP Address** to derive the location data.
-  - Import this (spreadsheet)[https://drive.google.com/file/d/13EfjM_4BohrmaxqXZLB5VUBIz2sv9Siz/view?usp=sharing] as a **"Sentinel Watchlist"**.
+  - Import this [spreadsheet](https://drive.google.com/file/d/13EfjM_4BohrmaxqXZLB5VUBIz2sv9Siz/view?usp=sharing) as a **"Sentinel Watchlist"**.
   
 📌 **Check for Unauthorized Users**  
 
